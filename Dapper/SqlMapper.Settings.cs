@@ -99,6 +99,11 @@ namespace Dapper
             /// instead of the original name; for most scenarios, this is ignored since the name is redundant, but "snowflake" requires this.
             /// </summary>
             public static bool UseIncrementalPseudoPositionalParameterNames { get; set; }
+
+            /// <summary>
+            /// Array handling strategy.
+            /// </summary>
+            public static ArrayHandling ArrayHandling { get; set; }
         }
     }
 }

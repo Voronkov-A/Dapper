@@ -2022,7 +2022,8 @@ namespace Dapper
             // initially we tried TVP, however it performs quite poorly.
             // keep in mind SQL support up to 2000 params easily in sp_executesql, needing more is rare
 
-            if (FeatureSupport.Get(command.Connection).Arrays)
+            if (Settings.ArrayHandling == ArrayHandling.Parameter
+                || Settings.ArrayHandling == ArrayHandling.Detect && FeatureSupport.Get(command.Connection).Arrays)
             {
                 var arrayParm = command.CreateParameter();
                 arrayParm.Value = SanitizeParameterValue(value);
